@@ -1,4 +1,4 @@
-# Vue_Vuex_Dexie_Todo
+# Vue/Vuex/Dexie(IndexedDB) Todo List App
 
 > A todo app built with Vue, Vuex, And Dexie
 
