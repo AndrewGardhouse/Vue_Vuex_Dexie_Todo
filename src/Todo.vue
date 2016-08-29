@@ -10,7 +10,7 @@
     </div>
     <div v-else>
       <label for="text" class="textfield">
-        <input type="text" name="text" v-model="todoText" v-bind:value="todo.text">
+        <input type="text" name="text" v-model="todoText" v-bind:value="todo.text" @keyup.enter="editCurrentTodo">
         <span class="textfield__label">Edit Todo</span>
       </label>
       <button v-on:click="editCurrentTodo">Edit Todo</button>
