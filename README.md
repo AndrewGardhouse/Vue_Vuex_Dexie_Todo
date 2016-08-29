@@ -1,6 +1,6 @@
-# vuex_todo
+# Vue_Vuex_Dexie_Todo
 
-> A Vue.js project
+> A todo app built with Vue, Vuex, And Dexie
 
 ## Build Setup
 
