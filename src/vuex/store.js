@@ -31,6 +31,9 @@ const mutations = {
     state.todos.filter((todo) => {
       todo.done = true
     })
+  },
+  DELETE_ALL_TODOS (state) {
+    state.todos = []
   }
 }
 

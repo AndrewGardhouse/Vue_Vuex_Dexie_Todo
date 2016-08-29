@@ -9,7 +9,11 @@
       <input type="text" name="name" @keyup.enter="addNewTodo">
       <span class="textfield__label">Add Todo</span>
     </label>
-    <button type="button" name="markAll" v-on:click="markAllCompleted" v-if="todos.length > 0">Mark All Completed</button>
+    <div v-if="todos.length > 0">
+      <h5>Completed Todos: {{ completedTodos.length }} </h5>
+      <button type="button" name="markAll" v-on:click="markAllCompleted">Mark All Completed</button>
+      <button type="button" name="deleteAll" v-on:click="deleteAllTodos">Delete All</button>
+    </div>    
     <hr>
     <ul>
       <todo v-for="todo in todos" :todo="todo"></todo>
@@ -18,7 +22,7 @@
 </template>
 
 <script>
-import { fetchAllTodos, addTodo, markAllCompleted } from './vuex/actions.js'
+import { fetchAllTodos, addTodo, markAllCompleted, deleteAllTodos } from './vuex/actions.js'
 import Todo from './Todo.vue'
 
 export default {
@@ -27,12 +31,16 @@ export default {
   },
   vuex: {
     getters: {
-      todos: store => store.todos
+      todos: store => store.todos,
+      completedTodos: store => store.todos.filter((todo) => {
+        return todo.done === true
+      })
     },
     actions: {
       addTodo,
       fetchAllTodos,
-      markAllCompleted
+      markAllCompleted,
+      deleteAllTodos
     }
   },
   ready () {
