@@ -67,7 +67,7 @@ export const markAllCompleted = ({ dispatch }) => {
 
 export const deleteAllTodos = ({ dispatch }) => {
   db.todos.orderBy('_id').delete().then((deleteCount) => {
-    console.log( "Deleted " + deleteCount + " Todos");
+    console.log(`Deleted ${deleteCount} Todos`);
     dispatch('DELETE_ALL_TODOS')
   });
 }
