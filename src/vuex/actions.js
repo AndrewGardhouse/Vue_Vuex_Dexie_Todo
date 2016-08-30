@@ -57,10 +57,10 @@ export const deleteTodo = ({dispatch}, todo) => {
 }
 
 export const markAllCompleted = ({ dispatch }) => {
-  db.todos.toArray((todos) => {
-    todos.forEach((todo) => {
-      db.todos.update(todo._id, {done: true})
-    })
+  db.todos.orderBy('_id').modify((todo) => {
+    todo.done = true
+  }).then((updatedCount) => {
+    console.log(`Marked ${updatedCount} Todos As Done`);
     dispatch('MARK_ALL_COMPLETED')
   })
 }
